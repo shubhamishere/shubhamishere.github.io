@@ -7,14 +7,50 @@
     <style>
         body { font-family: sans-serif; }
         pre { background-color: #eee; padding: 1em; border-radius: 5px; }
+
+        /* Optional: Add styles for the system details box here */
+        #system-details {
+            margin-top: 20px;
+            margin-bottom: 20px; /* Add some space below */
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #system-details h4 {
+            margin-top: 0;
+        }
+        #system-details p {
+            margin-bottom: 5px; /* Adjust spacing between lines */
+        }
     </style>
 </head>
 <body>
     <h1>WebGPU Compute Shader - Thread IDs</h1>
     <p>Check the browser's developer console (Option+Command+J on Chrome/Mac) for detailed logs.</p>
+
+    <!-- ADDED START: System Information Display -->
+    <div id="system-details">
+        <!-- Removed inline styles, added them to the <style> block above -->
+        <h4>Your System Details:</h4>
+        <p id="browser-info">Detecting browser...</p>
+        <p id="core-info">Detecting core...</p>
+        <p id="os-info">Detecting OS...</p>
+        <p id="screen-info">Detecting screen...</p>
+        <!-- <p id="system-info-error" style="color: red;"></p> --> <!-- Optional error element -->
+    </div>
+    <!-- ADDED END: System Information Display -->
+
     <p>Results from GPU:</p>
     <pre id="output">Initializing WebGPU...</pre>
 
+    <!-- ADDED START: Link to the new JavaScript file -->
+    <!-- Place this *before* your main script if main.js might interact with these elements,
+         or just before is generally fine too. -->
+    <script src="js/system-info.js"></script>
+    <!-- ADDED END: Link to the new JavaScript file -->
+
+    <!-- Your existing script -->
     <script type="module" src="main.js"></script>
 </body>
 </html>
