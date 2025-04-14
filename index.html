@@ -8,10 +8,10 @@
         body { font-family: sans-serif; }
         pre { background-color: #eee; padding: 1em; border-radius: 5px; }
 
-        /* Optional: Add styles for the system details box here */
+        /*Add styles for the system details box here */
         #system-details {
             margin-top: 20px;
-            margin-bottom: 20px; /* Add some space below */
+            margin-bottom: 20px; 
             padding: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -21,7 +21,7 @@
             margin-top: 0;
         }
         #system-details p {
-            margin-bottom: 5px; /* Adjust spacing between lines */
+            margin-bottom: 5px; /* to adjust spacing between lines */
         }
     </style>
 </head>
@@ -29,28 +29,26 @@
     <h1>Checking initial WebGPU application support on user's browser (hosted on github pages).</h1>
     <p>To check the support for WebGPU this website simply launches 256 threads on your device's GPU (should also work for chrome on mobile devices). Check the browser's developer console (Option+Command+J on Chrome/Mac) for detailed logs.</p>
 
-    <!-- ADDED START: System Information Display -->
+    <!-- System Information Display -->
     <div id="system-details">
-        <!-- Removed inline styles, added them to the <style> block above -->
+
         <h4>Your System Details:</h4>
         <p id="browser-info">Detecting browser...</p>
         <p id="core-info">Detecting core...</p>
         <p id="os-info">Detecting OS...</p>
         <p id="screen-info">Detecting screen...</p>
-        <!-- <p id="system-info-error" style="color: red;"></p> --> <!-- Optional error element -->
+
     </div>
-    <!-- ADDED END: System Information Display -->
+    <!--adding system info Display -->
 
     <p>Results from GPU:</p>
     <pre id="output">Initializing WebGPU...</pre>
 
-    <!-- ADDED START: Link to the new JavaScript file -->
-    <!-- Place this *before* your main script if main.js might interact with these elements,
-         or just before is generally fine too. -->
+    <!-- new js file linked-->
     <script src="js/system-info.js"></script>
-    <!-- ADDED END: Link to the new JavaScript file -->
+    <!-- linked the new JavaScript file -->
 
-    <!-- Your existing script -->
+    <!-- main js file -->
     <script type="module" src="main.js"></script>
 </body>
 </html>
