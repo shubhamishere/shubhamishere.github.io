@@ -4,17 +4,32 @@ async function main() {
     console.log("Requesting WebGPU adapter...");
 
     // 1. Check for WebGPU support and Request Adapter/Device
-    if (!navigator.gpu) {
-        outputElement.textContent = 'WebGPU not supported on this browser!';
-        console.error("WebGPU not supported.");
-        return;
-    }
-
     const adapter = await navigator.gpu.requestAdapter();
     if (!adapter) {
-        outputElement.textContent = 'Failed to get GPU adapter.';
-        console.error("Failed to get GPU adapter.");
-        return;
+      console.error("Failed to get GPU adapter.");
+      return;
+    }
+  
+    if (adapter.isFallbackAdapter) {
+      console.warn("WebGPU is using a fallback adapter (likely CPU-based software rendering).");
+    } else {
+      console.log("WebGPU is using a hardware-accelerated adapter (GPU).");
+    }
+  
+    // Optional: Get more detailed info
+    try {
+      const adapterInfo = await adapter.requestAdapterInfo();
+      console.log("Adapter Info:", adapterInfo);
+      // Look at vendor, architecture, device, description
+    } catch (e) {
+      console.warn("Could not get detailed adapter info:", e);
+      // requestAdapterInfo might not be supported or might fail
+      // Use info available directly on adapter if needed (older spec)
+       console.log("Adapter basic info:", {
+         name: adapter.name,
+         features: adapter.features,
+         limits: adapter.limits
+       });
     }
     outputElement.textContent = 'Got adapter. Requesting device...';
     console.log("Got adapter:", adapter);
@@ -41,7 +56,7 @@ async function main() {
         usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST,
     });
 
-    // 3. Load and Compile Shader Code
+    // 3. Load and Compile Shader Code, .wgsl code 
     console.log("Loading shader code...");
     const shaderCode = await fetch('compute.wgsl').then(res => res.text());
     const shaderModule = device.createShaderModule({
@@ -103,9 +118,9 @@ async function main() {
     const workgroupCount = Math.ceil(numElements / 64); // 256 / 64 = 4
     passEncoder.dispatchWorkgroups(workgroupCount, 1, 1); // Dispatch 4 workgroups in X dimension
 
-    passEncoder.end(); // End the compute pass
+    passEncoder.end(); // End the compute pass, this is asynchronous to CPU
 
-    // 8. Copy Data from GPU Output Buffer to CPU-Readable Staging Buffer
+    // 8. Just Making a Command to Copy Data from GPU Output Buffer to CPU-Readable Staging Buffer
     commandEncoder.copyBufferToBuffer(
         outputBuffer, 0, // Source buffer, offset
         stagingBuffer, 0, // Destination buffer, offset
