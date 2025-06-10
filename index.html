@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebGPU Thread ID Test</title>
+    <title>WebGPU Triangle Counting</title>
+    <!-- Using Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: sans-serif; }
-        pre { background-color: #eee; padding: 1em; border-radius: 5px; }
-
-        /*Add styles for the system details box here */
-        #system-details {
-            margin-top: 20px;
-            margin-bottom: 20px; 
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+        /* A simple animation for the status text */
+        @keyframes pulse {
+            50% {
+                opacity: .5;
+            }
         }
-        #system-details h4 {
-            margin-top: 0;
-        }
-        #system-details p {
-            margin-bottom: 5px; /* to adjust spacing between lines */
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     </style>
 </head>
-<body>
-    <h1>Checking initial WebGPU application support on user's browser (hosted on github pages).</h1>
-    <p>To check the support for WebGPU this website simply launches 256 threads on your device's GPU (should also work for chrome on mobile devices). Check the browser's developer console (Option+Command+J on Chrome/Mac) for detailed logs.</p>
+<body class="bg-gray-900 text-gray-200 font-sans flex items-center justify-center min-h-screen">
 
-    <!-- System Information Display -->
-    <div id="system-details">
+    <div class="bg-gray-800 shadow-2xl rounded-xl p-8 w-full max-w-lg space-y-6 border border-gray-700">
+        
+        <!-- Header -->
+        <div>
+            <h1 class="text-3xl font-bold text-center text-white">WebGPU Triangle Counting</h1>
+            <p class="text-center text-gray-400 mt-2">Upload a graph file to count the number of triangles using your GPU.</p>
+        </div>
 
-        <h4>Your System Details:</h4>
-        <p id="browser-info">Detecting browser...</p>
-        <p id="core-info">Detecting core...</p>
-        <p id="os-info">Detecting OS...</p>
-        <p id="screen-info">Detecting screen...</p>
+        <!-- File Input -->
+        <div class="space-y-2">
+            <label for="graphInput" class="block text-sm font-medium text-gray-300">Graph File (.txt)</label>
+            <input type="file" id="graphInput" accept=".txt" class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 transition-colors cursor-pointer"/>
+        </div>
 
+        <!-- Control Button -->
+        <button id="runButton" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-800 disabled:bg-gray-600 disabled:cursor-not-allowed">
+            Select a file first
+        </button>
+
+        <!-- Results and Status -->
+        <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 space-y-4">
+            <div>
+                <h2 class="text-lg font-semibold text-white">Results</h2>
+                <p class="text-gray-400 mt-1">The total number of triangles found in the graph.</p>
+                <div class="mt-2 text-4xl font-mono bg-gray-800 rounded-md p-4 text-center text-green-400" id="triangleCount">0</div>
+            </div>
+            <div class="border-t border-gray-700 pt-4">
+                 <h2 class="text-lg font-semibold text-white">Status</h2>
+                 <p class="text-gray-400 mt-1">Current state of the computation process.</p>
+                 <div class="mt-2 text-lg font-mono bg-gray-800 rounded-md p-4 text-center text-yellow-400" id="status">Idle</div>
+            </div>
+        </div>
     </div>
-    <!--adding system info Display -->
 
-    <p>Results from GPU:</p>
-    <pre id="output">Initializing WebGPU...</pre>
-
-    <!-- new js file linked-->
-    <script src="js/system-info.js"></script>
-    <!-- linked the new JavaScript file -->
-
-    <!-- main js file -->
+    <!-- The main script that orchestrates everything -->
     <script type="module" src="main.js"></script>
+
 </body>
 </html>

@@ -1,2 +1,2 @@
-Checking initial WebGPU application support on user's browser (hosted on github pages).
-To check the support for WebGPU this website simply launches 256 thread's on your device's GPU (should also work for chrome on mobile devices).
+# webGPU_triangle_counting
+triangle counting (parallel algorithm) in a graph using webGPU (dawn implementation) in the Chrome browser
