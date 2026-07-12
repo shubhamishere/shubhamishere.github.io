@@ -108,6 +108,8 @@ body[data-hero="dark"] .site-header:not(.scrolled) .nav-toggle {
 .hero {
   position: relative;
   min-height: 88vh;
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
   display: flex;
   align-items: center;
   color: #fff;
