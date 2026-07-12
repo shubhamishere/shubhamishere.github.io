@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Bioprim Technologies</title>
+  <meta name="description" content="Get in touch with Bioprim Technologies for fermenter, bioreactor, and SCADA automation quotes. Plot No. 539, Industrial Area, Phase-9, Mohali, Punjab.">
+  <link rel="canonical" href="https://www.bioprimtech.com/contact.html">
+  <meta property="og:title" content="Contact Us | Bioprim Technologies">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.bioprimtech.com/contact.html">
+  <link rel="icon" href="assets/images/logo/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .contact-form { display: grid; gap: var(--space-4); }
+    .contact-form label { font-weight: 700; font-size: 0.9rem; color: var(--navy-900); display: block; margin-bottom: var(--space-2); }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85em 1em;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      background: var(--surface);
+    }
+    .contact-form textarea { min-height: 140px; resize: vertical; }
+    .map-embed { border: 0; width: 100%; height: 320px; border-radius: var(--radius-md); }
+    .contact-info-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+    .contact-info-list li { display: flex; gap: var(--space-3); align-items: flex-start; }
+  </style>
+</head>
+<body data-page="contact">
+  <site-header></site-header>
+
+  <main>
+    <section class="container" style="padding-top: var(--space-9);">
+      <span class="eyebrow">Contact Us</span>
+      <h1>Let's talk about your bioprocess system</h1>
+      <p style="max-width:70ch;">Share your capacity, application, and automation requirements &mdash; our engineers will help you find the right configuration.</p>
+    </section>
+
+    <section class="container">
+      <div class="grid grid-2">
+        <div class="card reveal">
+          <h2>Request a Quote</h2>
+          <!--
+            TODO before launch: create a free account at https://web3forms.com (or https://formspree.io),
+            get an access key, and replace YOUR_WEB3FORMS_ACCESS_KEY below.
+            Web3Forms requires no backend — this form posts directly to their API.
+          -->
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New enquiry from bioprimtech.com">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+              <label for="product">Product of interest</label>
+              <select id="product" name="product">
+                <option>Bioprim-A &mdash; Lab Scale</option>
+                <option>Bioprim-P &mdash; Parallel</option>
+                <option>Bioprim-I &mdash; In-Situ</option>
+                <option>Automation &amp; SCADA</option>
+                <option>Not sure / need guidance</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Tell us about your process</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Enquiry</button>
+          </form>
+        </div>
+
+        <div class="reveal">
+          <h2>Reach us directly</h2>
+          <ul class="contact-info-list">
+            <li>
+              <strong>Address</strong><br>
+              Plot No. 539, Industrial Area, Phase-9, Mohali, 160062, Punjab, India
+            </li>
+            <li>
+              <strong>Phone</strong><br>
+              <a href="tel:+919465570063">+91 94655 70063</a> (WhatsApp) &middot;
+              <a href="tel:+916284250469">+91 62842 50469</a>
+            </li>
+            <li>
+              <strong>Email</strong><br>
+              <a href="mailto:info@bioprimtech.com">info@bioprimtech.com</a> &middot;
+              <a href="mailto:ceo@bioprimtech.com">ceo@bioprimtech.com</a>
+            </li>
+            <li>
+              <strong>LinkedIn</strong><br>
+              <a href="https://www.linkedin.com/company/bioprim-technologies" target="_blank" rel="noopener">linkedin.com/company/bioprim-technologies</a>
+            </li>
+          </ul>
+          <div style="margin-top: var(--space-6);">
+            <a class="btn btn-primary" href="https://wa.me/919465570063?text=Hi%20Bioprim%2C%20I%27d%20like%20to%20enquire%20about%20your%20fermenters%2Fbioreactors." target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Find us</h2>
+      <iframe class="map-embed" title="Bioprim Technologies location map" loading="lazy"
+        src="https://www.google.com/maps?q=Plot+No.+539,+Industrial+Area,+Phase+9,+Mohali,+Punjab+160062&output=embed">
+      </iframe>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <whatsapp-fab></whatsapp-fab>
+
+  <script src="js/components.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+</html>
