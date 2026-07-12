@@ -72,6 +72,12 @@ body[data-hero="dark"] .site-header:not(.scrolled) .nav-toggle {
   border-color: var(--green-600);
 }
 
+.nav-links a.btn-primary,
+.nav-links a.btn-primary:hover {
+  color: #fff;
+  border-bottom-color: transparent;
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -101,7 +107,8 @@ body[data-hero="dark"] .site-header:not(.scrolled) .nav-toggle {
 
   .nav-links.open { transform: translateX(0); }
 
-  .nav-links a { color: var(--navy-900) !important; font-size: 1.1rem; }
+  .nav-links a { font-size: 1.1rem; }
+  .nav-links a:not(.btn-primary) { color: var(--navy-900) !important; }
 }
 
 /* ===== Hero ===== */
