@@ -1,13 +1,14 @@
 :root {
-  /* Brand colors — approximated from logo/brochure, refine if exact brand hex is provided */
-  --navy-900: #0f3157;
-  --navy-800: #123a63;
-  --navy-700: #1a4d80;
-  --green-600: #17a34a;
-  --green-500: #22b95a;
+  /* Brand colors — measured directly from the BP logo file (dominant color clusters) */
+  --navy-900: #011246;
+  --navy-800: #0a2e5f;
+  --blue-600: #006fb2;
+  --blue-100: #e3f0f8;
+  --green-600: #33b52d;
+  --green-500: #4cc945;
   --green-100: #e3f7e9;
 
-  --brand-gradient: linear-gradient(135deg, var(--navy-800) 0%, var(--green-600) 100%);
+  --brand-gradient: linear-gradient(135deg, var(--navy-900) 0%, var(--green-600) 100%);
 
   /* Neutrals */
   --bg: #f5f7fa;
@@ -41,7 +42,7 @@
   --glass-bg-strong: rgba(255, 255, 255, 0.22);
   --glass-border: rgba(255, 255, 255, 0.35);
   --glass-blur: 16px;
-  --glass-shadow: 0 8px 32px rgba(15, 49, 87, 0.18);
+  --glass-shadow: 0 8px 32px rgba(1, 18, 70, 0.18);
 
   --max-width: 1240px;
   --transition-fast: 180ms ease;

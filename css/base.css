@@ -49,7 +49,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green-600);
+  color: var(--blue-600);
   margin-bottom: var(--space-3);
 }
 
@@ -88,7 +88,7 @@ section {
 .btn-primary {
   background: var(--brand-gradient);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(23, 163, 74, 0.28);
+  box-shadow: 0 10px 24px rgba(51, 181, 45, 0.28);
 }
 
 .btn-ghost {
@@ -126,7 +126,7 @@ section {
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(15, 49, 87, 0.12);
+  box-shadow: 0 16px 40px rgba(1, 18, 70, 0.12);
 }
 
 .grid {
@@ -189,7 +189,7 @@ details.spec-accordion summary::after {
   content: "+";
   float: right;
   font-size: 1.2rem;
-  color: var(--green-600);
+  color: var(--blue-600);
 }
 
 details.spec-accordion[open] summary::after {
