@@ -8,7 +8,7 @@
   --green-500: #4cc945;
   --green-100: #e3f7e9;
 
-  --brand-gradient: linear-gradient(135deg, #02081F 0%, var(--green-600) 100%);
+  --brand-gradient: linear-gradient(135deg, var(--blue-600) 0%, var(--green-500) 100%);
 
   /* Neutrals */
   --bg: #f5f7fa;
