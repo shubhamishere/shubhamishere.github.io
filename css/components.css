@@ -129,7 +129,7 @@ body[data-hero="dark"] .site-header:not(.scrolled) .nav-toggle {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 111, 178, 0.82), rgba(76, 201, 69, 0.55));
+  background: linear-gradient(135deg, rgba(4, 92, 148, 0.82), rgba(76, 201, 69, 0.55));
   z-index: 0;
 }
 
